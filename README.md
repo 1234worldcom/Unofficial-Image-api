@@ -61,11 +61,15 @@ The API returns a JSON object with an array of image data, including `src`, `alt
 
 This API is deployed on Glitch. You can also deploy it to platforms like Heroku, Vercel, or AWS Lambda.
 
-## 📜 License
+## 📜 Details
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 Feel free to explore and enjoy using the Image Search API! 😊🌈
+
+## ⚠️ Disclaimer: Unofficial Image Search API
+
+This project utilizes an unofficial Image Search API to retrieve images. Please be aware that this API is not affiliated with any of the image sources it searches. While efforts are made to provide accurate and reliable results, there may be discrepancies or limitations compared to using the official APIs provided by these platforms. Users are advised to exercise caution and understand the potential risks associated with using unofficial tools.
 
 ## Contributors ✨
 
