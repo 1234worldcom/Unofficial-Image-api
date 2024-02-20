@@ -17,12 +17,12 @@ https://mulberry-tiny-washer.glitch.me/data
 ### Example
 
 To search for images of "nature" from all services:
-```json
+```url
 https://mulberry-tiny-washer.glitch.me/data?query=nature&service=all
 ```
 
 To search for images of "mountains" from FreePik and Adobe:
-```json
+```url
 https://mulberry-tiny-washer.glitch.me/data?query=mountains&service=freepik,adobe
 ```
 ### Sample Response
