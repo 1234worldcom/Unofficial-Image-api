@@ -31,13 +31,13 @@ https://mulberry-tiny-washer.glitch.me/data?query=mountains&service=freepik,adob
 {
   "imageData": [
     {
-      "src": "https://img.freepik.com/free-photo/panoramic-nature-background-mountain-river-pine-forest_74986-44.jpg?size=626&ext=jpg",
+      "src": "https://img.freepik.com/free-photo/beautiful-landscape-grand-teton-national-park-wyoming-united-states_181624-60981.jpg?size=626&ext=jpg",
       "alt": "nature",
       "width": "626",
       "height": "417"
     },
     {
-      "src": "https://t4.ftcdn.net/jpg/02/36/71/89/360_F_236718987_6zVn0jDLwMnG7F29iee9n7PcOcvB1KWT.jpg",
+      "src": "https://t3.ftcdn.net/jpg/02/67/43/44/360_F_267434405_rVfKoBDQpb6smmbNtDRWvzAYCYpsX47E.jpg",
       "alt": "nature",
       "width": "360",
       "height": "240"
