@@ -21,9 +21,30 @@ To search for images of "nature" from all services:
 https://mulberry-tiny-washer.glitch.me/data?query=nature&service=all
 
 
-To search for images of "mountains" from FreePik and Unsplash:
+To search for images of "mountains" from FreePik and Adobe:
 
-https://mulberry-tiny-washer.glitch.me/data?query=mountains&service=freepik,unsplash
+https://mulberry-tiny-washer.glitch.me/data?query=mountains&service=freepik,adobe
+
+### Sample Response
+
+```json
+{
+  "imageData": [
+    {
+      "src": "https://img.freepik.com/free-photo/panoramic-nature-background-mountain-river-pine-forest_74986-44.jpg?size=626&ext=jpg",
+      "alt": "nature",
+      "width": "626",
+      "height": "417"
+    },
+    {
+      "src": "https://t4.ftcdn.net/jpg/02/36/71/89/360_F_236718987_6zVn0jDLwMnG7F29iee9n7PcOcvB1KWT.jpg",
+      "alt": "nature",
+      "width": "360",
+      "height": "240"
+    },
+    // More image data...
+  ]
+}
 
 
 ### Response
@@ -47,3 +68,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Feel free to explore and enjoy using the Image Search API! 😊🌈
 
+## Contributors ✨
+
+Thanks to all the wonderful people who have contributed to this project:
+
+- [@1234worldcom](https://github.com/1234worldcom) (Jay Paun) 🚀
