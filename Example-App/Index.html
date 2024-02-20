@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraped Image Data</title>
+    <style>
+        /* Basic CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .image-item {
+            width: 200px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .image-item img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scraped Image Data</h1>
+        <input type="text" id="searchInput" placeholder="Enter search query">
+        <button onclick="searchImages()">Search</button>
+        <div class="image-container" id="imageContainer"></div>
+    </div>
+
+    <script>
+        async function searchImages() {
+            const query = document.getElementById('searchInput').value;
+            const response = await fetch(`https://image-api-vj0v.onrender.com/data?query=${query}&service=all`);
+            const data = await response.json();
+            displayImages(data.imageData);
+        }
+
+        function displayImages(images) {
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.innerHTML = ''; // Clear previous results
+
+            images.forEach(imageData => {
+                const imageItem = document.createElement('div');
+                imageItem.classList.add('image-item');
+
+                const image = document.createElement('img');
+                image.src = imageData.src;
+                image.alt = imageData.alt;
+                if (imageData.width) {
+                    image.width = imageData.width;
+                }
+                if (imageData.height) {
+                    image.height = imageData.height;
+                }
+
+                imageItem.appendChild(image);
+                imageContainer.appendChild(imageItem);
+            });
+        }
+    </script>
+</body>
+</html>
