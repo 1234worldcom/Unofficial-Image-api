@@ -41,11 +41,10 @@ https://mulberry-tiny-washer.glitch.me/data?query=mountains&service=freepik,adob
       "alt": "nature",
       "width": "360",
       "height": "240"
-    },
-    // More image data...
+    }
   ]
 }
-```json
+
 
 ### Response
 
