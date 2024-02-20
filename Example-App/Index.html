@@ -1,81 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scraped Image Data</title>
-    <style>
-        /* Basic CSS styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .image-item {
-            width: 200px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-        .image-item img {
-            width: 100%;
-            height: auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: #28a745;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+      width: 300px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #imageContainer {
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Scraped Image Data</h1>
-        <input type="text" id="searchInput" placeholder="Enter search query">
-        <button onclick="searchImages()">Search</button>
-        <div class="image-container" id="imageContainer"></div>
+  <div class="container">
+    <h1>AI Image Generator</h1>
+    <div>
+      <input type="text" id="imagePromptInput" placeholder="Enter Image Prompt">
+      <button id="searchBtn">Search</button>
     </div>
+    <div id="imageContainer"></div>
+  </div>
+  <script>
+    document.getElementById('searchBtn').addEventListener('click', searchImages);
 
-    <script>
-        async function searchImages() {
-            const query = document.getElementById('searchInput').value;
-            const response = await fetch(`https://image-api-vj0v.onrender.com/data?query=${query}&service=all`);
-            const data = await response.json();
-            displayImages(data.imageData);
+    function searchImages() {
+      const query = document.getElementById('imagePromptInput').value;
+      fetch(`https://mulberry-tiny-washer.glitch.me/data?query=${query}&service=adobe,freepik`)
+        .then(response => response.json())
+        .then(data => {
+          displayImages(data.imageData);
+        })
+        .catch(error => {
+          console.error('Error fetching image data:', error);
+          alert('Failed to fetch images. Please try again later.');
+        });
+    }
+
+    function displayImages(images) {
+      const imageContainer = document.getElementById('imageContainer');
+      imageContainer.innerHTML = '';
+      images.forEach(image => {
+        if (!document.querySelector(`img[src="${image.src}"]`)) {
+          const imgElement = document.createElement('img');
+          imgElement.src = image.src;
+          imgElement.alt = image.alt;
+          if (image.width && image.height) {
+            imgElement.setAttribute('width', image.width);
+            imgElement.setAttribute('height', image.height);
+          }
+          imageContainer.appendChild(imgElement);
         }
-
-        function displayImages(images) {
-            const imageContainer = document.getElementById('imageContainer');
-            imageContainer.innerHTML = ''; // Clear previous results
-
-            images.forEach(imageData => {
-                const imageItem = document.createElement('div');
-                imageItem.classList.add('image-item');
-
-                const image = document.createElement('img');
-                image.src = imageData.src;
-                image.alt = imageData.alt;
-                if (imageData.width) {
-                    image.width = imageData.width;
-                }
-                if (imageData.height) {
-                    image.height = imageData.height;
-                }
-
-                imageItem.appendChild(image);
-                imageContainer.appendChild(imageItem);
-            });
-        }
-    </script>
+      });
+    }
+  </script>
 </body>
 </html>
