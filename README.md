@@ -5,9 +5,9 @@ Welcome to the Image Search API! 🚀 This API allows you to search for images f
 ## 📝 Usage
 
 ### Base URL
-
+```url
 https://mulberry-tiny-washer.glitch.me/data
-
+```
 
 ### Parameters
 
